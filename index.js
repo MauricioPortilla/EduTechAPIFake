@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const port = 3001;
 const learningObjects = require("./learningObjects.js").default;
+const allowedFilters = require("./filters.js").default;
 const MAX_LEARNING_OBJECTS_PER_PAGE = 2;
 
 app.use(bodyParser.json());
@@ -69,7 +70,7 @@ app.get("/learningObjects", function (req, res) {
 
 app.get("/learningObjects/filters", function (req, res) {
   res.send({
-    data: filters,
+    data: allowedFilters,
   });
 });
 
