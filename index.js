@@ -8,6 +8,7 @@ const MAX_LEARNING_OBJECTS_PER_PAGE = 2;
 
 app.use(bodyParser.json());
 app.use("/storage", express.static("storage"));
+app.use("/content", express.static("content"));
 
 // respond with "hello world" when a GET request is made to the homepage
 app.post("/login", function (req, res) {

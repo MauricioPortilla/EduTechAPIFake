@@ -29,4 +29,18 @@ module.exports.default = [
       },
     ],
   },
+  {
+    key: "disability",
+    name: "Disability",
+    values: [
+      {
+        name: "Blind",
+        value: "blind",
+      },
+      {
+        name: "Deaf",
+        value: "deaf",
+      },
+    ],
+  },
 ];

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repository</title>
+</head>
+<body>
+    My learning objects
+    <script type="text/javascript">
+        const sesskey = window.location.href.split("sesskey=")[1].split("&")[0];
+        const objects = fetch("http://localhost:3001/learningObjects", {
+            headers: {
+                "Authorization": "e3460519d91b0d7c0320e8ae2a4112ce863e62f6be6d39ff58e2fda19a1995a8"
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                for (const object of data.data) {
+                    document.body.append(document.createElement("br"));
+                    const link = document.createElement("a");
+                    link.href = 'http://moodledev.com/repository/edutechfake2/callback.php?data=' + 
+                        JSON.stringify(object) + "&sesskey=" + sesskey;
+                    link.innerHTML = object.title;
+                    document.body.append(link);
+                }
+            });
+    </script>
+</body>
+</html>
